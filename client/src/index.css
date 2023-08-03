@@ -1,0 +1,227 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.btn{
+  @apply text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-400 rounded-lg px-5 py-2 text-center;
+}
+.btn:disabled{
+  @apply bg-red-500 cursor-not-allowed;
+}
+
+
+.btnBlue{
+  @apply text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-400 rounded-lg px-5 py-2 text-center;
+}
+.btnBlue:disabled{
+  @apply bg-blue-500 cursor-not-allowed;
+}
+
+
+.btnUpdate{
+  @apply text-white bg-green-600 hover:bg-green-700 focus:ring-4 focus:outline-none focus:ring-green-400 rounded-lg px-5 py-2 text-center;
+}
+.btnUpdate:disabled{
+  @apply bg-green-500 cursor-not-allowed;
+}
+
+
+.btnUpVideo{
+  @apply text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-400 rounded-lg px-5 py-2 text-center;
+}
+.btnUpVideo:disabled{
+  @apply bg-blue-500 cursor-not-allowed;
+}
+
+
+
+.btnDelete{
+  @apply text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-400 rounded-lg px-5 py-2 text-center;
+}
+.btnDelete:disabled{
+  @apply bg-red-500 cursor-not-allowed;
+}
+
+
+
+.heightscreen{
+  height:calc(100vh - 85px)!important;
+}
+
+
+
+.ayudaheight{
+  height:calc(100vh - 232px);
+}
+
+
+.btnChange{
+  @apply text-white bg-green-600 hover:bg-green-700 focus:ring-4 focus:outline-none focus:ring-green-400 rounded-lg px-5 py-2 text-center;
+}
+
+.btnCancel{
+  @apply text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-400 rounded-lg px-5 py-2 text-center;
+}
+
+.toastWidth{
+  @apply w-96;
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+video{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+}
+  
+  .bun {
+    bottom: 10px;
+    right: 10px;
+     padding: 2px;
+     width: 30px;
+    min-height: 30px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 22px;
+    position: fixed;
+    text-transform: uppercase;
+    letter-spacing: 1.3px;
+    font-weight: 400;
+    color: white;
+    background: #dc2626;
+  background: linear-gradient(90deg, rgb(204, 74, 74) 0%, rgrgb(156, 16, 16)00%);
+    border: none;
+    border-radius: 100px;
+    box-shadow: 10px 10px 28px rgb(238, 49, 49);
+    transition: all 0.3s ease-in-out 0s;
+    cursor: pointer;
+    outline: none;
+    
+    padding: 4px 4px 4px;
+    margin: 10px
+    
+    }
+  
+  .bun::before {
+  content: '';
+    border-radius: 1000px;
+    min-width: calc(35px + 1px);
+    min-height: calc(25px + 10px);
+    border: 4px solid rgb(224, 83, 83);
+    box-shadow: 0 0 60px rgba(245, 40, 4, 0.64);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: all .3s ease-in-out 0s;
+  }
+  
+  .bun:hover, .bun:focus {
+    color: rgb(235, 219, 219);
+    transform: translateY(-8px);
+  }
+  
+  .bun:hover::before, .bun:focus::before {
+    opacity: 1;
+  }
+  
+  .bun::after {
+    content: '';
+    width: 3px; height: 39px;
+    border-radius: 100%;
+    border: 2px solid red;
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: ring 1.5s infinite;
+  }
+  
+  .bun:hover::after, .bun:focus::after {
+    animation: none;
+    display: none;
+  }
+  
+  @keyframes ring {
+    0% {
+      width: 30px;
+      height: 30px;
+      opacity: 1;
+    }
+    100% {
+      width: 300px;
+      height: 300px;
+      opacity: 0;
+    }
+  }
+  
+  .max-w-md {
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+  .img {
+    transition: transform 0.2s;
+  }
+  
+  .img:hover {
+    transform: scale(1.05);
+  }
+  
+
+  @keyframes btn {
+    0% {
+      box-shadow: 0px 3px 0px rgba(0, 0, 0, 0.4);
+    }
+    50% {
+      box-shadow: 0px 5px 0px rgba(0, 0, 0, 0.4);
+      margin-top: 0.5rem;
+    }
+    100% {
+      box-shadow: 0px 3px 0px rgba(0, 0, 0, 0.4);
+    }
+  }
+  
+  @keyframes led {
+    0% {
+      box-shadow: inset 0px 1px 0px rgba(0, 0, 0, 0.1);
+    }
+    50% {
+      box-shadow: inset 0px 0px 0px rgba(0, 0, 0, 0.1);
+    }
+    100% {
+      box-shadow: inset 0px 1px 
+    }
+  }
+
+
+
+  .text-white {
+    color: #fff;
+  }
+  .text-3xl {
+    font-size: 1.875rem;
+  }
+      
+  .scrollbar {
+    ::-webkit-scrollbar {
+      width: 1px;
+    }
+  
+    ::-webkit-scrollbar-track {
+      background-color: #f1f1f1;
+    }
+  
+    ::-webkit-scrollbar-thumb {
+      background-color: #888;
+    }
+  }
+
