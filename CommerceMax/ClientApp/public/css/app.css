@@ -1,0 +1,34 @@
+
+/* Fuente Gilroy */
+@font-face {
+    font-family: 'Gilroy';
+    src: url('../fonts/Gilroy-Medium.ttf') format('truetype');
+    font-weight: normal; 
+}
+
+/* Fuente Gilroy en negrita */
+@font-face {
+    font-family: 'Gilroy';
+    src: url('../fonts/Gilroy-Bold.ttf') format('truetype');
+    font-weight: bold;
+}
+
+
+a[href*="http://somee.com"] {
+    visibility: hidden;
+    display: none;
+}
+
+
+body {
+    font-family: 'Gilroy', sans-serif !important;
+}
+
+.gilroy-bold {
+    font-family: 'Gilroy', sans-serif !important;
+    font-weight: bold;
+}
+
+.gilroy {
+    font-family: 'Gilroy', sans-serif !important;
+}
