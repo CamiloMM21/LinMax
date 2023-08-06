@@ -77,36 +77,7 @@ function Signin() {
       });
   };
 
-  const signinGoogle = async (e) => {
-    e.preventDefault();
-    const provider = new GoogleAuthProvider();
-    const credentials = await signInWithPopup(auth, provider)
-      .then(async (userCredential) => {
-        const user = userCredential.user;
-        dispatch({ type: "LOGIN", payload: user });
-        const userDocRef = doc(db, "users", user.uid);
-        const userDocSnapshot = await getDoc(userDocRef);
-        const userObj = {
-          email: user.email,
-          userName: user.displayName,
-          phoneNumber: user.phoneNumber,
-          photoURL: user.photoURL,
-          timeStamp: serverTimestamp(),
-        };
-        if (userDocSnapshot.exists()) {
-          // If the user document already exists, update the existing values with the new ones
-          await updateDoc(userDocRef, userObj);
-        } else {
-          // If the user document doesn't exist yet, create a new document with the user's data
-          await setDoc(userDocRef, userObj);
-        }
-        menuView();
-      })
-      .catch((error) => {
-        console.log("errorCode: " + error.code);
-        console.log("errorMessage: " + error.message);
-      });
-  };
+
 
   // VALIDACIONES DEL FORMULARIO
   const validar = (values) => {
@@ -131,7 +102,7 @@ function Signin() {
       aria-hidden="true"
       className="fixed bg-black bg-opacity-25 backdrop-blur-sm top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full"
     >
-      <div className="relative w-full h-full max-w-lg md:h-auto">
+      <div className="relative w-auto h-full max-w-lg md:h-auto">
         {/* <!-- Modal content --> */}
         <div className="relative bg-bggray rounded-lg shadow">
           {/* <!-- Modal header --> */}
@@ -231,56 +202,9 @@ function Signin() {
                     Regístrate
                   </button>
                 </div>
-                <div className="mt-2 p-3">
-                  <div
-                    className="border-b-2 border-white text-center"
-                    style={{ height: 0.9 + "rem" }}
-                  >
-                    <span className="bg-bggray text-gray-400 px-3">or</span>
-                  </div>
-                </div>
-                <div className="mt-4 flex justify-center gap-3 text-white bg-transparent border boder-white hover:bg-white transition duration-500 hover:text-bggray focus:ring-4 focus:outline-none focus:ring-red-400 font-medium rounded-lg px-5 py-2 text-center w-full">
-                  <img
-                    src="./img/google-icon.svg"
-                    alt="google-icon"
-                    style={{ height: 1.6 + "rem" }}
-                  />
-                  <button
-                    onClick={signinGoogle}
-                    data-modal-hide="signInModal"
-                    className=""
-                  >
-                    Continuar con Google
-                  </button>
-                </div>
               </Form>
             </Formik>
-            {/* <form onSubmit={handleSignin}>
-                            <div className="mt-6 text-white">
-                                <label htmlFor="email" className="block mb-1 text-sm font-medium text-white">Correo</label>
-                                <input type="email" onChange={e => setEmail(e.target.value)} className="bg-gray-600 border border-gray-500 text-white placeholder-gray-400 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="example@email.com" required />
-                            </div>
-                            <div className="mt-2 text-white">
-                                <label htmlFor="password" className="block mb-1 text-sm font-medium text-white">Contraseña</label>
-                                <input type="password" onChange={e => setPassword(e.target.value)} className="bg-gray-600 border border-gray-500 placeholder-gray-400 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="••••••••" required />
-                            </div>
-                            <div className="mt-8">
-                                <button type="submit" data-modal-hide="signInModal" className="text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-400 font-medium rounded-lg px-5 py-2 text-center w-full">Login</button>
-                            </div>
-                            <div className="flex justify-center mt-1 text-white gap-1">
-                                <div className="text-gray-400">No tienes una cuenta?</div>
-                                <button className="font-bold text-red-600" data-modal-hide="signInModal" data-modal-target="signUpModal" data-modal-toggle="signUpModal">Regístrate</button>
-                            </div>
-                            <div className="mt-2 p-3">
-                                <div className="border-b-2 border-white text-center" style={{ height: 0.9 + 'rem' }}>
-                                    <span className="bg-bggray text-gray-400 px-3">or</span>
-                                </div>
-                            </div>
-                            <div className="mt-4 flex justify-center gap-3 text-white bg-transparent border boder-white hover:bg-white transition duration-500 hover:text-bggray focus:ring-4 focus:outline-none focus:ring-red-400 font-medium rounded-lg px-5 py-2 text-center w-full">
-                                <img src="./img/google-icon.svg" alt="google-icon" style={{ height: 1.6 + 'rem' }} />
-                                <button onClick={signinGoogle} data-modal-hide="signInModal" className="">Continuar con Google</button>
-                            </div>
-                        </form> */}
+         
           </div>
         </div>
       </div>

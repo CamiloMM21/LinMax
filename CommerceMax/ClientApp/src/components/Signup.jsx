@@ -75,14 +75,6 @@ function Signup() {
             errors.password = "La contraseña debe ser mayor a 7 dígitos";
         } else if (!values.userName) {
             errors.userName = "Usuario obligatorio";
-        } else if (!values.phoneNumber) {
-            errors.phoneNumber = "Teléfono obligatorio";
-        } else if (!values.city) {
-            errors.city = "Ciudad obligatoria";
-        } else if (!values.neighborhood) {
-            errors.neighborhood = "Barrio obligatorio";
-        } else if (!values.fullName) {
-            errors.fullName = "Nombre Completo obligatorio";
         }
         return errors;
     }
@@ -90,7 +82,7 @@ function Signup() {
     return (
         // SIGN UP MODAL
         <div id="signUpModal" tabIndex="-1" aria-hidden="true" className="fixed bg-black bg-opacity-25 backdrop-blur-sm top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full">
-            <div className="relative w-full h-full max-w-2xl md:h-auto">
+            <div className="relative w-auto h-full max-w-2xl md:h-auto ">
                 {/* <!-- Modal content --> */}
                 <div className="relative bg-bggray rounded-lg shadow">
                     {/* <!-- Modal header --> */}
@@ -115,75 +107,38 @@ function Signup() {
                                     email: "",
                                     password: "",
                                     userName: "",
-                                    phoneNumber: "",
-                                    city: "",
-                                    neighborhood: "",
-                                    fullName: ""
+                                   
                                 }}
                                 onSubmit={handleSignup}
                                 validate={validar}
                             >
                                 <Form>
-                                    <div className="grid grid-flow-row auto-rows-max">
-                                        <div className="grid grid-cols-2 gap-5">
+                                    <div className="grid grid-flow-row auto-rows-max ">
+                                        <div className="grid grid-cols-1  row-span-1 gap-2">
                                             <div>
-                                                <div className="mt-6 text-white">
+                                                <div className="mt-2 text-white">
                                                     <Field name="email" type="email" className="bg-gray-600 border border-gray-500 text-white placeholder-gray-400 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Correo" autoComplete="username" />
                                                 </div>
                                             </div>
                                             <div>
-                                                <div className="mt-6 text-white">
+                                                <div className="mt-2 text-white">
                                                     <Field name="password" type="password" className="bg-gray-600 border border-gray-500 text-white placeholder-gray-400 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Contraseña" autoComplete="new-password" />
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div className="grid grid-cols-2 gap-5">
-                                            <div>
-                                                <div className="mt-3 text-white">
+                                            </div> 
+                                              <div>
+                                                <div className="mt-2 text-white">
                                                     <Field name="userName" type="text" className="bg-gray-600 border border-gray-500 text-white placeholder-gray-400 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Usuario" />
                                                 </div>
                                             </div>
-                                            <div>
-                                                <div className="mt-3 text-white">
-                                                    <Field name="phoneNumber" type="number" className="bg-gray-600 border border-gray-500 text-white placeholder-gray-400 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Teléfono" />
-                                                </div>
-                                            </div>
                                         </div>
-                                        <div className="grid grid-cols-2 gap-5">
-                                            <div>
-                                                <div className="mt-3 text-white">
-                                                    <Field name="city" type="text" className="bg-gray-600 border border-gray-500 text-white placeholder-gray-400 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Ciudad" />
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <div className="mt-3 text-white">
-                                                    <Field name="neighborhood" type="text" className="bg-gray-600 border border-gray-500 text-white placeholder-gray-400 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Barrio" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="grid grid-cols-4 gap-5">
-                                            <div>
-
-                                            </div>
-                                            <div className="col-span-2">
-                                                <div className="mt-3 text-white">
-                                                    <Field name="fullName" type="text" className="bg-gray-600 border border-gray-500 text-white placeholder-gray-400 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Nombre Completo" />
-                                                </div>
-                                            </div>
-                                            <div>
-
-                                            </div>
-                                        </div>
+                                        
                                     </div>
                                     <div className="mt-4 flex justify-center text-red-600 font-bold">
                                         <div className="flex flex-col">
                                             <div><ErrorMessage name="email" /></div>
                                             <div><ErrorMessage name="password" /></div>
                                             <div><ErrorMessage name="userName" /></div>
-                                            <div><ErrorMessage name="phoneNumber" /></div>
-                                            <div><ErrorMessage name="city" /></div>
-                                            <div><ErrorMessage name="neighborhood" /></div>
-                                            <div><ErrorMessage name="fullName" /></div>
+                                       
                                         </div>
                                     </div>
                                     <div className="mt-4">
